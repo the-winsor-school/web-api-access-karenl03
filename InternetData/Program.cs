@@ -18,9 +18,14 @@ namespace InternetData
             {
                 RecipeInfo recipe = Recipes.getRecipeInfo(meal);
 
+                Console.WriteLine();
                 Console.WriteLine(recipe.strMeal);
                 Console.WriteLine("Meal category: " + recipe.strCategory);
-                Console.WriteLine("Link to original recipe: " + recipe.strSource);
+                if(!string.IsNullOrEmpty(recipe.strSource))
+                {
+                    Console.WriteLine("Link to original recipe: " + recipe.strSource);
+                }
+                Console.WriteLine();
                 Console.WriteLine(recipe.strInstructions);
                 Console.WriteLine();
 
