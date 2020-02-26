@@ -34,14 +34,18 @@ namespace InternetData
     }
 
     [DataContract]
-    public class WeatherForcast
+    public class WeatherForcast //declaring the class
     {
-        [DataMember]
-        public double latitude;
+        [DataMember] //decoration (everything that comes from the API)
+        public double latitude; //property name must be identical to name in JSON file
 
         [DataMember]
         public double longitude;
 
+        /*
+         * if property name is time-zone in JSON, then
+         * [DataMember(Name = time-zone")]hour
+         */
         [DataMember]
         public string timezone;
 
@@ -85,7 +89,7 @@ namespace InternetData
         [DataMember]
         public string uri;
 
-        [IgnoreDataMember]
+        [IgnoreDataMember] //takes provided time number and translates it into an actual time
         public DateTime Time => new DateTime(time);
 
         [IgnoreDataMember]
