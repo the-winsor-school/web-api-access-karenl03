@@ -22,7 +22,7 @@ namespace InternetData.Properties
 
             if (!response.IsSuccessStatusCode)
             {
-                return new RecipeInfo();
+                throw new Exception();
             }
 
             return ((RecipesList)serializer.ReadObject(response.Content.ReadAsStreamAsync().Result)).meals[0];
@@ -69,6 +69,9 @@ namespace InternetData.Properties
 
         [DataMember]
         public string strIngredient6;
+
+        [DataMember]
+        public string strIngredient7;
 
         [DataMember]
         public string strIngredient8;
