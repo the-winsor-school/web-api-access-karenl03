@@ -10,6 +10,7 @@ namespace InternetData.Properties
     {
         public static RecipeInfo getRecipeInfo(string meal)
         {
+            //sending API request to internet using client
             HttpClient client = new HttpClient();
 
             HttpRequestMessage request = new HttpRequestMessage(
