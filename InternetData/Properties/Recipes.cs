@@ -8,6 +8,7 @@ namespace InternetData.Properties
 {
     public class Recipes
     {
+        //retrieves recipes from recipe API based on user inputted string
         public static RecipeInfo getRecipeInfo(string meal)
         {
             //sending API request to internet using client
