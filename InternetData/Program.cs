@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization.Json;
 using System.Net.Http;
 using InternetData.Properties;
 
@@ -16,9 +14,9 @@ namespace InternetData
 
             try
             {
-                RecipeInfo recipe = Recipes.getRecipeInfo(meal);
+                RecipeInfo recipe = Recipes.getRecipeInfo(meal); //referencing Recipes.cs
 
-                Console.WriteLine();
+                Console.WriteLine(); //printing the different recipe info
                 Console.WriteLine(recipe.strMeal);
                 Console.WriteLine("Meal category: " + recipe.strCategory);
                 if(!string.IsNullOrEmpty(recipe.strSource))
@@ -31,6 +29,8 @@ namespace InternetData
 
                 Console.WriteLine("Ingredients needed:");
                 //printing out the different ingredients
+                //checking if the ingredients are null
+
                 if (!string.IsNullOrEmpty(recipe.strIngredient1))
                 {
                     Console.WriteLine(recipe.strIngredient1 + ": " + recipe.strMeasure1);
@@ -112,9 +112,9 @@ namespace InternetData
                     Console.WriteLine(recipe.strIngredient20 + ": " + recipe.strMeasure20);
                 }
             }
-            catch
+            catch //catching an exception if there is no recipe for the inputted meal
             {
-                Console.WriteLine("No results.");
+                Console.WriteLine("No results found for " + meal + ".");
             }
             
         }
@@ -122,7 +122,7 @@ namespace InternetData
 
         public static void Main(string[] args)
         {
-            GetRecipesFromSearch();
+            GetRecipesFromSearch(); //calling the above function
         }
     }
 }

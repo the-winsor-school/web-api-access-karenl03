@@ -14,7 +14,7 @@ namespace InternetData.Properties
 
             HttpRequestMessage request = new HttpRequestMessage(
                 HttpMethod.Get,
-                string.Format("https://www.themealdb.com/api/json/v1/1/search.php?s={0}", meal));
+                string.Format("https://www.themealdb.com/api/json/v1/1/search.php?s={0}", meal)); //recipe API
 
             HttpResponseMessage response = client.SendAsync(request).Result;
 
@@ -25,12 +25,13 @@ namespace InternetData.Properties
                 throw new Exception();
             }
 
+            //returning first recipe in the meals array from search
             return ((RecipesList)serializer.ReadObject(response.Content.ReadAsStreamAsync().Result)).meals[0];
         }
     }
 
     [DataContract]
-    public class RecipesList
+    public class RecipesList //array of different meals
     {
         [DataMember]
         public List<RecipeInfo> meals;
